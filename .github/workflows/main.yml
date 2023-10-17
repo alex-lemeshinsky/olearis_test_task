@@ -36,7 +36,8 @@ jobs:
       - run: flutter pub get
       - run: flutter clean
       - run: flutter build ios --release --no-codesign
-      - name: Upload iOS app
+      
+      # Upload iOS app
       - uses: actions/upload-artifact@v2
         with:
           name: app-release-ios
@@ -59,7 +60,8 @@ jobs:
       - run: flutter test
       - run: flutter build apk
       - run: flutter build appbundle
-      - name: Upload Android APK
+
+      # Upload Android apk and aab
       - uses: actions/upload-artifact@v2
         with:
           name: app-release-android
