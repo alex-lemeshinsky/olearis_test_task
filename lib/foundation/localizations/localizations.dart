@@ -4,4 +4,5 @@ abstract class LocalizationStrings {
   static const String login = "Login";
   static const String password = "Password";
   static const String continue_ = "Continue";
+  static const String markupTest = "Markup Test";
 }

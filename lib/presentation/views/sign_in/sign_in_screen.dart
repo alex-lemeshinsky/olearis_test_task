@@ -13,16 +13,20 @@ class SignInScreen extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final Size size = MediaQuery.of(context).size;
-    final bool isPortrait = size.height > size.width;
+    final bool isLandscape =
+        MediaQuery.of(context).orientation == Orientation.landscape;
 
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(LocalizationStrings.signIn),
-        ),
-        body: Padding(
-          padding: EdgeInsets.symmetric(horizontal: isPortrait ? 16.0 : 52.0),
+      appBar: AppBar(
+        title: const Text(LocalizationStrings.signIn),
+      ),
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: isLandscape ? 52.0 : 16.0),
+        child: Scrollbar(
           child: CustomScrollView(
+            physics: const AlwaysScrollableScrollPhysics(
+              parent: BouncingScrollPhysics(),
+            ),
             slivers: [
               SliverFillRemaining(
                 hasScrollBody: false,
@@ -32,7 +36,7 @@ class SignInScreen extends ConsumerWidget {
                     Expanded(
                       child: SvgPicture.asset(
                         Assets.logo,
-                        width: isPortrait ? double.infinity : 500,
+                        width: isLandscape ? 500 : double.infinity,
                       ),
                     ),
                     TextField(
@@ -49,7 +53,7 @@ class SignInScreen extends ConsumerWidget {
                         labelText: LocalizationStrings.password,
                       ),
                     ),
-                    if (isPortrait) const Spacer(),
+                    if (!isLandscape) const Spacer(),
                     PrimaryButton(
                       onPressed: ref.read(signInProvider.notifier).login,
                       title: LocalizationStrings.continue_,
@@ -62,6 +66,8 @@ class SignInScreen extends ConsumerWidget {
               ),
             ],
           ),
-        ));
+        ),
+      ),
+    );
   }
 }
