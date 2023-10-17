@@ -15,9 +15,12 @@ dependencies:
   
   flutter_riverpod: ^2.4.4
   auto_route: ^7.8.4
-  dev: ^1.0.0
   copy_with_extension: ^5.0.4  
   flutter_svg: ^2.0.7
+  
+  # injection
+  get_it: ^7.6.4
+  injectable: ^2.3.2
 
 dev_dependencies:
   flutter_test:
@@ -28,6 +31,7 @@ dev_dependencies:
   auto_route_generator: ^7.3.2
   build_runner: ^2.4.6
   copy_with_extension_gen: ^5.0.4
+  injectable_generator: ^2.4.1
 
 flutter:
 
