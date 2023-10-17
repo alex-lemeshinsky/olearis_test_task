@@ -1,7 +1,5 @@
 # olearis_test_task
 
 ## Demo
-<video width="320" height="240" controls>
-  <source src="demo.mp4" type="video/mp4">
-  Your browser does not support the video tag.
-</video>
+https://github.com/alex-lemeshinsky/olearis_test_task/assets/45542314/77200c6e-404d-4ac9-a791-56e4c2fdfae8
+
