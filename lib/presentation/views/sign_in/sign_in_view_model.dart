@@ -29,7 +29,11 @@ class SignInViewModel extends StateNotifier<SignInViewState> {
     );
   }
 
-  Future<void> login() async {}
+  Future<void> login() async {
+    state = state.copyWith(loading: true);
+    await Future.delayed(const Duration(seconds: 1));
+    // state = state.copyWith(loading: false);
+  }
 
   @override
   void dispose() {

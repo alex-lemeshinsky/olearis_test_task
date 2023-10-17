@@ -5,6 +5,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:olearis_test_task/foundation/assets/assets.dart';
 import 'package:olearis_test_task/foundation/localizations/localizations.dart';
 import 'package:olearis_test_task/presentation/views/sign_in/sign_in_view_model.dart';
+import 'package:olearis_test_task/presentation/widgets/primary_button.dart';
 
 @RoutePage(name: "SignInScreenRoute")
 class SignInScreen extends ConsumerWidget {
@@ -49,11 +50,11 @@ class SignInScreen extends ConsumerWidget {
                       ),
                     ),
                     if (isPortrait) const Spacer(),
-                    ElevatedButton(
-                      onPressed: ref.watch(signInProvider).credentialsAreValid
-                          ? ref.read(signInProvider.notifier).login
-                          : null,
-                      child: const Text(LocalizationStrings.continue_),
+                    PrimaryButton(
+                      onPressed: ref.read(signInProvider.notifier).login,
+                      title: LocalizationStrings.continue_,
+                      enabled: ref.watch(signInProvider).credentialsAreValid,
+                      loading: ref.watch(signInProvider).loading,
                     ),
                     const SizedBox(height: 24),
                   ],
